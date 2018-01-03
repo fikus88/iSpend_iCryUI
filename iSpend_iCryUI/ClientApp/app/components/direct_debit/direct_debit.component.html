@@ -1,0 +1,55 @@
+﻿<div class="col-md-12 column productbox">
+    <div class="producttitle">Direct Debits for account : {{direct_debits[0].display_name}}</div>
+    <div class="productprice">
+            <a href="#" [routerLink]="['/transactions/' + direct_debits[0].account_id]" class="btn btn-danger btn-sm" role="button">Transactions</a>
+            <a href="#" class="btn btn-warning btn-sm" role="button">Bills</a>
+    
+    </div>
+</div>
+
+<table class="table table-striped table-condensed table-responsive">
+    <thead>
+        <tr>
+            <th>
+                Time
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Reference
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tr of direct_debits;">
+            <td>
+                {{tr.timestamp | date: 'dd/MM/yyyy'}}
+            </td>
+            <td>
+                {{tr.description}}
+            </td>
+            <td>
+                {{tr.transaction_type}}
+            </td>
+            <td>
+                {{tr.transaction_category}}
+            </td>
+            <td>
+                {{tr.amount}}
+            </td>
+            <td>
+                {{tr.meta_transaction_reference}}
+            </td>
+        </tr>
+    </tbody>
+</table>
